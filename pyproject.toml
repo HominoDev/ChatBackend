@@ -1,0 +1,22 @@
+[project]
+name = "chatbackend"
+version = "0.1.0"
+description = "Chat overlay backend in FastAPI"
+authors = [
+    {name = "HominoDev",email = "101052991+HominoDev@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard] (>=0.128.0,<0.129.0)",
+    "bcrypt (==4.0.1)",
+    "passlib (==1.7.4)",
+    "sqlmodel (>=0.0.31,<0.0.32)",
+    "psycopg2 (>=2.9.11,<3.0.0)",
+    "alembic (>=1.17.2,<2.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
