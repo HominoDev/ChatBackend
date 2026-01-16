@@ -53,4 +53,6 @@ def validate_user_session(uuid: str) -> Optional[UserSession]:
         db_user_session = session.exec(statement).first()
         if db_user_session and db_user_session.expired_at > datetime.utcnow():
             return db_user_session
-    return None
+        elif db_user_session:
+            session.delete(db_user_session)
+            session.commit()

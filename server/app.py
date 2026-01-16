@@ -24,7 +24,7 @@ logger.info(f"Database engine initialized {engine}")
 app = FastAPI()
 
 # Settings section
-SESSION_EXPIRE_HOURS = 1
+SESSION_EXPIRE_HOURS = 24
 
 # Functions
 def get_session(request: Request) -> str:
@@ -41,6 +41,7 @@ def get_session(request: Request) -> str:
 def read_root():
     return {"Hello": "World"}
 
+# Auth endpoints
 @app.post("/auth/register")
 def register_user(user: UserCreate):
     db_user = create_user(user.nickname, user.email, user.password)
@@ -84,7 +85,15 @@ def logout_user(request: Request, response: Response):
     response.delete_cookie("session_uuid")
     return {"ok": True}
 
-@app.get("/auth/test-session")
+# Widget endpoints
+@app.get("/widgets/chats/get_message")
+def get_message(request: Request):
+    session_uuid = get_session(request)
+    
+    return {"ok": True}
+
+# 
+@app.get("/test-session")
 def test_session(request: Request):
     session_uuid = get_session(request)
     return {"ok": True}
