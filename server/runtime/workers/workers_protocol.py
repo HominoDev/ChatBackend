@@ -1,0 +1,6 @@
+# Lib
+from typing import Protocol
+
+class Worker(Protocol):
+    async def run(self) -> None: ...
+    async def stop(self) -> None: ...

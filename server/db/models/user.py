@@ -1,6 +1,6 @@
 # server/db/models/user.py
 # Libs
-from sqlmodel import Field, Session, SQLModel, create_engine, select
+from sqlmodel import Field, Session, SQLModel, select
 from typing import Optional
 from datetime import datetime, timezone
 # Local modules
